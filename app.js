@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('memo_submissions', JSON.stringify(submissions));
 
     // Send data to Google Sheets API (no-cors + URL-encoded for cross-domain compatibility)
-    const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxgWfwmB9qvzXH_UsskJWzcHBurZAJ7FTC8v7IxsW5SN2GmpIaKFTRwoF5KuR1pM67Zuw/exec";
+    const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbyMBGrWyahhACGdTURerLIo3Fvxop4TvLdYPf8qlRjjJGeN6CljQloT6YBxjsTHtfR34Q/exec";
     
     const formData = new URLSearchParams();
     formData.append("firstname", firstname);
