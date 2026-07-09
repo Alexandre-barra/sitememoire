@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remerciements du Mémoire - Laisse ton empreinte !</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Aidez-moi à finaliser mon mémoire en laissant vos informations pour la page des remerciements officiels ! Un processus simple et fun.">
+  <meta name="keywords" content="mémoire, remerciements, collecte, université, fun, rickroll">
+  
+  <!-- Google Fonts: Fraunces (Expressive Serif) & Outfit (Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- canvas-confetti library for high-performance celebration effects -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Interactive Background Canvas for subtle animations if needed -->
+  <canvas id="celebration-canvas"></canvas>
+
+  <!-- Main Container -->
+  <main class="main-wrapper">
+    <div class="card-container">
+      
+      <!-- Header -->
+      <header class="hero-header">
+        <h1 class="main-title">Formulaire pour la page des <span id="admin-trigger" class="secret-trigger">remerciements</span> du mémoire de <span class="blue-text">Alexandre</span></h1>
+        <p class="subtitle">
+          Remplissez tous, vous êtes tous les bienvenus !
+        </p>
+      </header>
+
+      <!-- Form -->
+      <form id="submission-form" class="main-form" autocomplete="off">
+        <div class="form-row">
+          <!-- First name -->
+          <div class="input-group">
+            <label for="firstname">Ton Prénom</label>
+            <input type="text" id="firstname" name="firstname" required>
+            <span class="focus-border"></span>
+          </div>
+
+          <!-- Last name -->
+          <div class="input-group">
+            <label for="lastname">Ton Nom</label>
+            <input type="text" id="lastname" name="lastname" required>
+            <span class="focus-border"></span>
+          </div>
+        </div>
+
+        <!-- Nickname -->
+        <div class="input-group">
+          <label for="nickname">Ton Surnom</label>
+          <input type="text" id="nickname" name="nickname" required>
+          <span class="focus-border"></span>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="submit-btn" class="submit-button">
+          <span class="btn-text">Remplir le formulaire</span>
+          <span class="btn-glow"></span>
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Celebration Modal (Confetti + Rick Astley Transparent GIF) -->
+  <div id="celebration-overlay" class="overlay hidden" aria-hidden="true">
+    <div class="celebration-content">
+      <div class="gif-wrapper">
+        <!-- Transparent Rickroll Sticker from Tenor -->
+        <img src="https://media1.tenor.com/m/hflrM6ZnKNkAAAAC/rick-roll-rick-astley.gif" alt="Rick Astley Dancing" class="celebration-gif">
+      </div>
+      <h2 class="celebration-title">MERCI !</h2>
+      <p class="celebration-subtitle">Ton nom a été gravé avec succès dans les remerciements !</p>
+    </div>
+  </div>
+
+  <!-- Hidden Admin Panel Modal -->
+  <div id="admin-overlay" class="overlay hidden" aria-hidden="true">
+    <div class="admin-card">
+      <div class="admin-header">
+        <h2>Console d'Administration</h2>
+        <button id="close-admin-btn" class="close-btn" aria-label="Fermer l'administration">&times;</button>
+      </div>
+      
+      <div class="admin-stats">
+        <p>Total de contributeurs : <strong id="admin-count">0</strong></p>
+      </div>
+
+      <div class="admin-actions">
+        <button id="export-json-btn" class="admin-action-btn primary">Télécharger JSON</button>
+        <button id="export-csv-btn" class="admin-action-btn primary">Télécharger CSV</button>
+        <button id="reset-data-btn" class="admin-action-btn danger">Réinitialiser tout</button>
+      </div>
+
+      <div class="admin-table-wrapper">
+        <table id="admin-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Prénom</th>
+              <th>Nom</th>
+              <th>Surnom</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-table-body">
+            <!-- Dynamically populated rows -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
